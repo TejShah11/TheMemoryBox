@@ -33,7 +33,7 @@
    - Share your memories with loved ones by gifting them capsules.
    - Ownership of the capsule and its album is transferred seamlessly, adding a personal touch.
 
-7. **ML-Based Face Detection** *(Experimental)*
+7. **ML-Based Face Detection**
    - Automatically groups photos of the same person using machine learning techniques.
    - Create custom videos or albums for each person based on these groups.
 
