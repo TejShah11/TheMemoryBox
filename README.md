@@ -4,6 +4,8 @@
 
 ![HomePage](https://github.com/user-attachments/assets/d8fa274a-b126-4605-b7ad-d25eadbdbb72)
 
+![MLPage](https://github.com/user-attachments/assets/4d7b9ed3-964e-426f-9ae6-08bcb2beba27)
+
 ## Features
 
 1. **Secure Authentication**
