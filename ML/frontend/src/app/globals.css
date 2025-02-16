@@ -1,0 +1,177 @@
+/* global.css */
+
+/* Import Tailwind's base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define our cosmic theme variables */
+:root {
+  /* Primary colors for interactive elements and gradients */
+  --primary: #9333ea;
+  --secondary: #ec4899;
+  --accent: #d946ef;
+  
+  /* Colors for the space-themed background effects */
+  --deep-space: #0a0b1e;
+  --blue-nebula: #1e3a8a;
+  --pink-nebula: #831843;
+  --star-color: #ffffff;
+  --star-glow: rgba(255, 255, 255, 0.8);
+}
+
+/* Base styles for the cosmic background */
+.cosmic-bg {
+  background-color: var(--deep-space);
+  background-image: 
+    /* Create multiple layers of nebula effects using radial gradients */
+    radial-gradient(1200px circle at 0% 0%, var(--pink-nebula) 0%, transparent 50%),
+    radial-gradient(1200px circle at 100% 100%, var(--blue-nebula) 0%, transparent 50%),
+    /* Add subtle purple glow in the center */
+    radial-gradient(800px circle at 50% 50%, rgba(147, 51, 234, 0.1) 0%, transparent 60%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Create twinkling star effect */
+.cosmic-bg::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    /* Multiple radial gradients to create stars of different sizes */
+    radial-gradient(1px 1px at 20px 30px, var(--star-color) 50%, transparent),
+    radial-gradient(1px 1px at 40px 70px, var(--star-color) 50%, transparent),
+    radial-gradient(1px 1px at 50px 160px, var(--star-color) 50%, transparent),
+    radial-gradient(2px 2px at 90px 40px, var(--star-color) 50%, transparent),
+    radial-gradient(2px 2px at 130px 80px, var(--star-color) 50%, transparent),
+    radial-gradient(1px 1px at 160px 120px, var(--star-color) 50%, transparent),
+    radial-gradient(2px 2px at 200px 150px, var(--star-color) 50%, transparent),
+    radial-gradient(1px 1px at 250px 220px, var(--star-color) 50%, transparent),
+    radial-gradient(1px 1px at 300px 180px, var(--star-color) 50%, transparent);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: twinkle 4s ease-in-out infinite alternate;
+  opacity: 0.7;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Define the twinkling animation for stars */
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Cosmic card styling with glassmorphism effect */
+.cosmic-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    /* Outer shadow for depth */
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    /* Inner highlight for glass effect */
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover effects for cosmic cards */
+.cosmic-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 12px -1px rgba(0, 0, 0, 0.2),
+    0 4px 8px -1px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Loading animation styles */
+.loading-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cosmic-bg::before {
+    background-size: 200px 200px;
+  }
+  
+  .cosmic-card {
+    backdrop-filter: blur(8px);
+  }
+}
+
+/* Ensure text remains readable */
+body {
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus styles for accessibility */
+:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Animation utilities */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
